@@ -1,0 +1,2 @@
+[console_scripts]
+danacvt-gen = danacvtTestsSpecsGenerator.cli:main

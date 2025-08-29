@@ -1,0 +1,18 @@
+# Core
+argparse
+dataclasses; python_version < "3.7"
+
+# File handling
+python-docx
+pypandoc
+
+# OCR & image processing
+pillow
+pytesseract
+opencv-python
+
+# LLM integration
+openai
+
+# Optional testing
+pytest

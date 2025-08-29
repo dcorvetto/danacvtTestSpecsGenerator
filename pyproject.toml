@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "danacvt-tests-specs-generator"
+version = "0.1.0"
+description = "Generate tests and UI specs from documents and mockups"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Dana" }]
+
+dependencies = [
+  "pillow",
+  "pytesseract",
+  "python-docx",
+  "PyPDF2",
+  "pandas",
+  "openai>=1.0.0"
+]
+
+[project.scripts]
+danacvt-gen = "danacvtTestsSpecsGenerator.cli:main"
+
+[tool.setuptools]
+# If your package folder is named exactly "danacvtTestsSpecsGenerator", this will find it.
+packages = ["danacvtTestsSpecsGenerator"]
+include-package-data = true

@@ -1,0 +1,6 @@
+pillow
+pytesseract
+python-docx
+PyPDF2
+pandas
+openai>=1.0.0

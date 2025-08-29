@@ -1,0 +1,25 @@
+Login Specification
+Purpose
+To allow a user to securely access the system using valid credentials.
+Preconditions
+The user has already registered and has a valid account (username/email + password).
+The system is connected to the authentication server.
+Steps
+Navigate to the Login Page.
+Enter a valid Username or Email in the input field.
+Enter the Password in the secure password field.
+(Optional) Check "Remember Me" if the user wants the session persisted.
+Click the Login button.
+Validations
+Both fields (Username/Email and Password) must be non-empty.
+Password input must be masked (●●●●●).
+Email must match a valid format (e.g., user@example.com).
+Expected Results
+Successful login: User is redirected to the dashboard/home page with a success message or indication of logged-in state.
+Unsuccessful login:
+If invalid credentials → Display error message: "Invalid username or password."
+If fields are empty → Show inline validation error.
+If too many failed attempts → Show lockout message or CAPTCHA.
+Postconditions
+On success: User session/token is created and stored securely.
+On failure: No session is created.

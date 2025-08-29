@@ -1,0 +1,2 @@
+[console_scripts]
+unified-gen = danacvtTestsSpecsGenerator.cli:main

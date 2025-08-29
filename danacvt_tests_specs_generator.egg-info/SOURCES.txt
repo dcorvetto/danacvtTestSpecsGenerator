@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+danacvtTestsSpecsGenerator/__init__.py
+danacvtTestsSpecsGenerator/cli.py
+danacvtTestsSpecsGenerator/config.py
+danacvtTestsSpecsGenerator/models.py
+danacvt_tests_specs_generator.egg-info/PKG-INFO
+danacvt_tests_specs_generator.egg-info/SOURCES.txt
+danacvt_tests_specs_generator.egg-info/dependency_links.txt
+danacvt_tests_specs_generator.egg-info/entry_points.txt
+danacvt_tests_specs_generator.egg-info/requires.txt
+danacvt_tests_specs_generator.egg-info/top_level.txt

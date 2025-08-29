@@ -1,0 +1,174 @@
+Metadata-Version: 2.4
+Name: danacvt-tests-specs-generator
+Version: 0.1.0
+Summary: Generate tests and UI specs from documents and mockups
+Author: Dana
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pillow
+Requires-Dist: pytesseract
+Requires-Dist: python-docx
+Requires-Dist: PyPDF2
+Requires-Dist: pandas
+Requires-Dist: openai>=1.0.0
+
+# 🧪 DanacvtTestsSpecsGenerator : Test Case & UI Spec Generator
+
+This project provides an **all-in-one generator** that can produce **test cases** and **UI specifications** from:
+- **Text documents** (requirements, Google Docs exports, .txt, .md, .docx, .pdf)
+- **Mockup images** (UI screenshots, wireframes) via OCR or Vision LLMs
+
+It combines heuristic parsing + LLM boosting to automatically generate structured test cases and documentation.
+
+---
+
+## 🚀 Installation
+
+Clone this repo and install dependencies:
+
+```bash
+git clone https://github.com/dcorvetto/danacvtTestsSpecsGenerator.git
+cd danacvtTestsSpecsGenerator
+
+# Using requirements.txt
+pip install -r requirements.txt
+
+# Or with pyproject.toml
+pip install -e .
+```
+
+Make sure you have **Tesseract OCR** installed (for image parsing):
+
+- macOS: `brew install tesseract`
+- Ubuntu: `sudo apt-get install tesseract-ocr`
+- Windows: [Tesseract Installer](https://github.com/UB-Mannheim/tesseract/wiki)
+
+---
+
+## ⚙️ Configuration
+
+Set your OpenAI API key:
+
+```bash
+export OPENAI_API_KEY="sk-xxxx..."
+```
+
+Output files will be placed in `outputs/` by default (see `config.py`).
+
+---
+
+## 📄 Usage Examples
+
+### 1. Generate test cases from a document
+```bash
+danacvt-gen --file login_spec_example.txt --scope "Login" --out testcases.csv
+```
+This will:
+- Parse `login_spec_example.txt`
+- Generate structured test cases
+- Save them in `outputs/testcases.csv`
+
+---
+
+### 2. Generate test cases from a UI mockup image
+```bash
+danacvt-gen--file mockup.png --scope "Scene Members" --out ui_cases.feature
+```
+This will:
+- Run OCR on the image
+- Parse UI elements (buttons, toggles, lists)
+- Generate UI-focused test cases
+- Export them to a `.feature` file
+
+---
+
+### 3. Use LLM for richer UI specifications
+```bash
+danacvt-gen --file mockup.png --scope "Scene Members"  --llm-ui-spec outputs/ui_llm.md --llm-model gpt-4o-mini --use-llm
+```
+This will:
+- Send the OCR or image directly to an LLM
+- Generate a detailed UI spec
+- Save it to `outputs/ui_llm.md`
+
+---
+
+### 4. Append an LLM UI spec addendum to an existing spec
+```bash
+danacvt-gen --file mockup.png --scope "Scene Members" --llm-ui-spec outputs/ui_llm.md --llm-model gpt-4o-mini --use-llm
+```
+```bash
+danacvt-gen --file mockup.png --scope "Scene Members" --update-ui-spec docs/SceneMembersSpec.md --llm-ui-spec outputs/ui_llm.md --use-llm
+```
+This will:
+- Send the OCR or image directly to an LLM
+- Generate a detailed UI spec
+- Save it to `docs/SceneMembersSpec.md`
+
+The first line will generate the ui spec for the mockup.png. The second line will add this spec to the file docs/SceneMembersSpec.md as an Addendum 
+---
+
+### 5. Replace specific sections in an existing spec
+```bash
+danacvt-gen --file mockup.png --scope "Scene Members" --update-ui-spec docs/SceneMembersSpec.md  --llm-ui-spec outputs/ui_llm.md --replace-sections "Interaction Flows, Accessibility (a11y)" --use-llm
+```
+This will:
+- Send the OCR or image directly to an LLM
+- Generate a detailed UI spec
+- Save it to `docs/SceneMembersSpec.md` replacing the sections indicated, already existing in this file
+
+---
+
+### 6 Merge new tests into an existing CSV (keep IDs, update rows, add new)
+```bash
+danacvt-gen --file login_spec_example.txt --scope "Login" --out outputs/login_cases.csv
+```
+```bash
+danacvt-gen --file login_spec_example.txt --scope "Login" --update-csv testcases_master.csv
+```
+This will:
+- Parse `login_spec_example.txt`
+- Generate structured test cases
+- Save them in `testcases_master.csv`
+
+---
+
+### 7 Merge and mark old rows as obsolete
+```bash
+danacvt-gen --file login_updated.txt --scope "Login" --update-csv testcases_master.csv --prune
+```
+This will:
+- Parse `login_updated.txt`
+- Generate structured test cases
+- Save them in `testcases_master.csv`. This will mark any previous titles not present in the new generation as Status=obsolete
+
+---
+
+
+## 📂 Project Structure
+
+```
+danacvtTestsSpecsGenerator/
+│
+├── cli.py                # Command-line entry point
+├── config.py             # Global configuration
+├── models.py             # Core data models (TestCase, TestStep)
+│
+├── exporters/            # Export to CSV, Gherkin, etc.
+├── generators/           # Test case + UI spec generators
+├── llm/                  # LLM-powered extensions (booster, vision, text)
+└── parsers/              # Parsers for docs, OCR, and UI structure
+└── updaters/             # Updaters for specs and test cases
+```
+
+---
+
+## ✅ Features
+- [x] Parse requirements docs into test cases  
+- [x] Parse mockups/screens into UI test cases  
+- [x] Heuristic rules (toggles, buttons, long name truncation, etc.)  
+- [x] LLM boosting for richer specs & edge cases  
+- [x] Export to CSV or Gherkin feature files  
+
+---

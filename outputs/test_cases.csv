@@ -1,0 +1,80 @@
+ID,Title,Description,Preconditions,Steps,Expected Result,Priority,Type,Tags,Trace To
+TC-00DF8CD9,Scene Members: screen loads,Open screen.,Screen reachable,1. Navigate to the screen,Screen displays correctly.,P1,functional,ui,Devices
+TC-47AEAF0E,"Scene Members: input accepts valid — v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait","Validate valid input for 'v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait'.",Screen reachable,"1. Focus 'v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait'
+2. Enter valid value
+3. Submit/blur",Value accepted; no error.,P1,functional,"input,positive",Devices
+TC-B3AF05CD,"Scene Members: input rejects invalid — v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait","Validate invalid input for 'v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait'.",Screen reachable,"1. Focus 'v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait'
+2. Enter invalid value
+3. Submit/blur",Clear error; state consistent; submit blocked if required.,P1,negative,"input,negative",Devices
+TC-D1F89C04,"Scene Members: input boundary — v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait",Min/Max length and special chars.,Screen reachable,"1. Try min-1, min, min+1 chars
+2. Try max-1, max, max+1 chars
+3. Try special characters",Accepted/rejected per rules; messages are clear.,P2,boundary,"input,boundary",Devices
+TC-949F9434,Scene Members: input accepts valid — [1A-331]-190B-XFAC Longer name check,Validate valid input for '[1A-331]-190B-XFAC Longer name check'.,Screen reachable,"1. Focus '[1A-331]-190B-XFAC Longer name check'
+2. Enter valid value
+3. Submit/blur",Value accepted; no error.,P1,functional,"input,positive",Devices
+TC-AFA985A8,Scene Members: input rejects invalid — [1A-331]-190B-XFAC Longer name check,Validate invalid input for '[1A-331]-190B-XFAC Longer name check'.,Screen reachable,"1. Focus '[1A-331]-190B-XFAC Longer name check'
+2. Enter invalid value
+3. Submit/blur",Clear error; state consistent; submit blocked if required.,P1,negative,"input,negative",Devices
+TC-2D5F746D,Scene Members: input boundary — [1A-331]-190B-XFAC Longer name check,Min/Max length and special chars.,Screen reachable,"1. Try min-1, min, min+1 chars
+2. Try max-1, max, max+1 chars
+3. Try special characters",Accepted/rejected per rules; messages are clear.,P2,boundary,"input,boundary",Devices
+TC-F64AFD42,Scene Members: input accepts valid — [1A-331]-190B-XFAC Longer name,Validate valid input for '[1A-331]-190B-XFAC Longer name'.,Screen reachable,"1. Focus '[1A-331]-190B-XFAC Longer name'
+2. Enter valid value
+3. Submit/blur",Value accepted; no error.,P1,functional,"input,positive",Devices
+TC-D0784CA1,Scene Members: input rejects invalid — [1A-331]-190B-XFAC Longer name,Validate invalid input for '[1A-331]-190B-XFAC Longer name'.,Screen reachable,"1. Focus '[1A-331]-190B-XFAC Longer name'
+2. Enter invalid value
+3. Submit/blur",Clear error; state consistent; submit blocked if required.,P1,negative,"input,negative",Devices
+TC-62F7F097,Scene Members: input boundary — [1A-331]-190B-XFAC Longer name,Min/Max length and special chars.,Screen reachable,"1. Try min-1, min, min+1 chars
+2. Try max-1, max, max+1 chars
+3. Try special characters",Accepted/rejected per rules; messages are clear.,P2,boundary,"input,boundary",Devices
+TC-AAF204EF,Scene Members: input accepts valid — [1A-331]-190B-XFAC Longer name check,Validate valid input for '[1A-331]-190B-XFAC Longer name check'.,Screen reachable,"1. Focus '[1A-331]-190B-XFAC Longer name check'
+2. Enter valid value
+3. Submit/blur",Value accepted; no error.,P1,functional,"input,positive",Devices
+TC-C2EADA63,Scene Members: input rejects invalid — [1A-331]-190B-XFAC Longer name check,Validate invalid input for '[1A-331]-190B-XFAC Longer name check'.,Screen reachable,"1. Focus '[1A-331]-190B-XFAC Longer name check'
+2. Enter invalid value
+3. Submit/blur",Clear error; state consistent; submit blocked if required.,P1,negative,"input,negative",Devices
+TC-F5B1B51A,Scene Members: input boundary — [1A-331]-190B-XFAC Longer name check,Min/Max length and special chars.,Screen reachable,"1. Try min-1, min, min+1 chars
+2. Try max-1, max, max+1 chars
+3. Try special characters",Accepted/rejected per rules; messages are clear.,P2,boundary,"input,boundary",Devices
+TC-A601EB0A,Scene Members: input accepts valid — [1A-331]-190B-XFAC Longer name check,Validate valid input for '[1A-331]-190B-XFAC Longer name check'.,Screen reachable,"1. Focus '[1A-331]-190B-XFAC Longer name check'
+2. Enter valid value
+3. Submit/blur",Value accepted; no error.,P1,functional,"input,positive",Devices
+TC-CC768EA9,Scene Members: input rejects invalid — [1A-331]-190B-XFAC Longer name check,Validate invalid input for '[1A-331]-190B-XFAC Longer name check'.,Screen reachable,"1. Focus '[1A-331]-190B-XFAC Longer name check'
+2. Enter invalid value
+3. Submit/blur",Clear error; state consistent; submit blocked if required.,P1,negative,"input,negative",Devices
+TC-B5D16A52,Scene Members: input boundary — [1A-331]-190B-XFAC Longer name check,Min/Max length and special chars.,Screen reachable,"1. Try min-1, min, min+1 chars
+2. Try max-1, max, max+1 chars
+3. Try special characters",Accepted/rejected per rules; messages are clear.,P2,boundary,"input,boundary",Devices
+TC-0EB3F144,"Scene Members: button works — v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait","Validate button 'v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait' action.",Screen reachable,"1. Locate 'v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait'
+2. Click/Tap 'v Vv < Q 9:41 Press Back AVAILABLE MEMBERS [1A-331]-190B-XFAC! [1A-331]-190B-XFAC Search to | by DEVICES 0 start Scene name, assigning | 12 Members Longer ID or members MAC address to the uso €) scene Eait'",Expected navigation/action occurs.,P1,functional,"button,interaction",Devices
+TC-A20E53C3,Scene Members: cancel/discard changes,Discard unsaved changes.,Screen reachable,"1. Make changes
+2. Tap 'Cancel' or navigate back",Changes discarded; confirm dialog if needed.,P2,negative,"cancel,back",Devices
+TC-195CD467,Scene Members: toggle on/off,Validate toggle behavior.,Screen reachable,"1. Observe default state
+2. Toggle ON
+3. Toggle OFF",State toggles correctly; persists if applicable.,P2,functional,toggle,Devices
+TC-E25B0060,Scene Members: toggle access control,Restricted toggle visibility/behavior.,Screen reachable,1. Attempt toggle with insufficient permission,Toggle disabled or action denied.,P2,permissions,"toggle,permissions",Devices
+TC-041F1557,Scene Members: search filters list,Filter by query.,Screen reachable,"1. Focus search
+2. Type query",Only matching rows shown.,P1,functional,search,Devices
+TC-93DE7C99,Scene Members: search no results,Empty state for non-matching query.,Screen reachable,1. Enter random query,No results message shown.,P2,negative,"search,empty",Devices
+TC-F8CA7756,Scene Members: list visible/scrollable,Rows visible and scrollable.,Screen reachable,"1. Open screen
+2. Scroll list",Rows remain visible and interactive.,P2,functional,list,Devices
+TC-7AF8864D,Scene Members: long names render correctly,No overflow or truncation bugs.,Screen reachable,1. Locate items with long labels,No clipping; ellipsis or wrap per design; full value available.,P2,functional,"list,long-names",Devices
+TC-26D14C6C,Scene Members: list count matches header,Header count equals list rows.,Screen reachable,1. Count visible rows,Count equals 12.,P2,functional,"list,count",Devices
+TC-730335F9,Scene Members: accessibility labeling,Accessible names/roles/focus order.,Screen reachable,1. Inspect with screen reader,Correct roles/names; logical focus order; dynamic updates announced.,P2,usability,a11y,Devices
+TC-03E12048,Scene Member Addition,Verify that a user can successfully add a member to a scene.,"User is logged in
+User is on the Scene Members page","1. Click on 'Add Member' button
+2. Select a member from the available members list
+3. Confirm the addition",The selected member is added to the scene and appears in the members list.,P0,functional,"llm,scene,members,addition",Scene Members
+TC-A696CDBF,Scene Member Removal,Verify that a user can successfully remove a member from a scene.,"User is logged in
+User has at least one member in the scene","1. Select a member from the members list
+2. Click on 'Remove Member' button
+3. Confirm the removal",The selected member is removed from the scene and no longer appears in the members list.,P0,functional,"llm,scene,members,removal",Scene Members
+TC-A7C31E6E,Search Functionality,Verify that the search functionality works correctly for finding members by name or MAC address.,"User is logged in
+User is on the Scene Members page","1. Enter a valid member name or MAC address in the search bar
+2. Click on the 'Search' button",The search results display the member that matches the search criteria.,P1,functional,"llm,scene,members,search",Scene Members
+TC-10CAE69F,Longer Name Handling,Verify that the system can handle longer names for scene members without errors.,"User is logged in
+User is on the Scene Members page","1. Attempt to add a member with a name exceeding the typical character limit
+2. Confirm the addition",The system accepts the longer name and adds the member without any errors.,P2,boundary,"llm,scene,members,boundary",Scene Members
+TC-6EF812DC,Back Navigation,Verify that pressing the 'Back' button navigates the user to the previous page correctly.,"User is logged in
+User is on the Scene Members page",1. Click on the 'Back' button,User is navigated back to the previous page without losing any data.,P1,usability,"llm,navigation,usability",Scene Members
+TC-642F6768,Unauthorized Access to Scene Members,Verify that users without the necessary permissions cannot access the Scene Members page.,User is logged in with limited permissions,1. Attempt to navigate to the Scene Members page,User receives an error message indicating insufficient permissions.,P0,permissions,"llm,permissions,access",Scene Members
