@@ -92,6 +92,7 @@ This will:
 - Save it to `docs/SceneMembersSpec.md`
 
 The first line will generate the ui spec for the mockup.png. The second line will add this spec to the file docs/SceneMembersSpec.md as an Addendum 
+
 ---
 
 ### 5. Replace specific sections in an existing spec
@@ -105,7 +106,7 @@ This will:
 
 ---
 
-### 6 Merge new tests into an existing CSV (keep IDs, update rows, add new)
+### 6. Merge new tests into an existing CSV (keep IDs, update rows, add new)
 ```bash
 danacvt-gen --file login_spec_example.txt --scope "Login" --out outputs/login_cases.csv
 ```
@@ -119,7 +120,7 @@ This will:
 
 ---
 
-### 7 Merge and mark old rows as obsolete
+### 7. Merge and mark old rows as obsolete
 ```bash
 danacvt-gen --file login_updated.txt --scope "Login" --update-csv testcases_master.csv --prune
 ```
