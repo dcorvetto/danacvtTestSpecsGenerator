@@ -130,8 +130,16 @@ This will:
 - Save them in `testcases_master.csv`. This will mark any previous titles not present in the new generation as Status=obsolete
 
 ---
+### 8. Test cases and UI Spec for flow using multiple images in folder
+```bash
+danacvt-gen --folder ./mockups  --scope "Scene Members Flow"  --flow-spec --llm-flow-spec scene_flow_llm.md  --llm-vision --out scenes_flow_cases.csv --use-llm --llm-model gpt-4.1-mini
+```
+This will:
+- Send the images within mockups folder directly to an LLM
+- Generate a detailed UI spec for the flow and test cases for the mockups
+- Save UI Spec to `scene_flow_llm.md`  and test cases to `scenes_flow_cases.csv`
 
-
+---
 ## 📂 Project Structure
 
 ```
