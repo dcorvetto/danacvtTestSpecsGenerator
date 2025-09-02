@@ -1,0 +1,60 @@
+ID,Title,Description,Preconditions,Steps,Expected Result,Priority,Type,Tags,Trace To
+LLM-FE1A48FB,Verify navigation from Screen 1 to Screen 2 on member selection,Ensure that selecting a member on Screen 1 correctly navigates to Screen 2 with updated member count.,User is on Screen 1 with available members displayed,"1. Select a member from the list on Screen 1
+2. Observe the transition to Screen 2",Screen 2 loads showing the selected member(s) with updated member count,P0,functional,"llm,navigation,member-selection,screen-transition",Scene Members Flow
+LLM-E3026E24,Validate search functionality filters members by ID or MAC address,Verify that entering a valid ID or MAC address in the search field filters the member list accordingly.,"User is on any screen with a search input available
+Members with known IDs and MAC addresses exist","1. Enter a valid member ID or MAC address in the search input
+2. Observe the filtered member list",Only members matching the entered ID or MAC address are displayed,P0,functional,"llm,search,filter,validation",Scene Members Flow
+LLM-931D725F,Check back navigation returns to previous screen with state preserved,Ensure that pressing the Back button returns to the previous screen and preserves the selected members and search state.,User has navigated from Screen 1 to Screen 2 with some members selected and search applied,"1. Press the Back button on Screen 2
+2. Observe the previous screen and its state",User returns to Screen 1 with previous selections and search input intact,P1,functional,"llm,navigation,state-preservation,back-button",Scene Members Flow
+LLM-24720951,Validate maximum number of members can be assigned to a scene,Verify that the system enforces a maximum limit on the number of members assigned to a scene.,"User is on a screen where members can be assigned to a scene
+Maximum allowed members limit is known","1. Select members up to the maximum allowed limit
+2. Attempt to add one more member beyond the limit",System prevents adding members beyond the maximum limit and shows an appropriate message,P0,boundary,"llm,limit,boundary,validation",Scene Members Flow
+LLM-7385047C,Verify error handling when notification sending fails during scene save,"Ensure that if notifications fail to send when saving a scene, the user is informed and can retry.","User is on the final save screen
+Notification sending service is simulated to fail","1. Attempt to save the scene with assigned members
+2. Observe the system behavior on notification failure",User receives a clear error message about notification failure and option to retry saving,P1,negative,"llm,error-handling,notification,save",Scene Members Flow
+LLM-9653609D,Validate that member names longer than allowed length are truncated or handled,Check that member names exceeding the UI display length are properly truncated or wrapped without breaking layout.,Members with very long names exist in the system,"1. Navigate to a screen displaying member names
+2. Observe how long member names are rendered",Long member names are truncated or wrapped appropriately without UI distortion,P2,usability,"llm,ui,text-display,boundary",Scene Members Flow
+LLM-69873A5D,Verify that cancelling the flow discards changes and returns to initial screen,Ensure that pressing Cancel at any intermediate screen discards all changes and returns user to the initial screen.,User is mid-flow with some members selected or search applied,"1. Press Cancel button
+2. Observe navigation and state",User is returned to the initial screen with no changes saved,P1,functional,"llm,cancel,navigation,state-reset",Scene Members Flow
+LLM-69AB4BBC,Check that member count updates correctly across screens after selection/deselection,Verify that the displayed number of selected members updates accurately as members are added or removed across screens.,User is navigating through multiple screens with member selection enabled,"1. Select members on Screen 1
+2. Navigate to Screen 3 and deselect some members
+3. Navigate to Screen 4 and observe member count",Member count reflects the current number of selected members accurately on each screen,P0,functional,"llm,member-count,selection,consistency",Scene Members Flow
+LLM-E09D4BCD,"Validate input guardrails for search field (empty, invalid characters)",Ensure the search input handles empty input and invalid characters gracefully without crashing or unexpected behavior.,User is on a screen with search input,"1. Enter empty string and observe behavior
+2. Enter invalid characters (e.g., special symbols) and observe behavior","Search input handles empty and invalid inputs gracefully, showing no results or appropriate message",P2,negative,"llm,input-validation,search,error-handling",Scene Members Flow
+LLM-15DAEAAA,Verify that the scene save confirmation shows correct number of members saved,"Check that after saving a scene, the confirmation screen displays the accurate count of members saved.",User has assigned members and saved the scene,"1. Complete member assignment
+2. Save the scene
+3. Observe the confirmation message",Confirmation message correctly states the number of members saved to the scene,P1,functional,"llm,confirmation,save,accuracy",Scene Members Flow
+LLM-530F14EC,Test that members powered off cannot be assigned to a scene,Verify that members which are powered off are either not selectable or produce an error when assigned.,Some members are powered off in the system,"1. Attempt to select powered off members for assignment
+2. Observe system behavior",Powered off members cannot be assigned and user is notified accordingly,P1,permissions,"llm,member-status,assignment,validation",Scene Members Flow
+LLM-2ABDE307,Validate that multiple members can be selected and deselected in bulk,Ensure the UI supports selecting and deselecting multiple members at once and updates member count accordingly.,User is on a screen with multiple members listed,"1. Select multiple members using bulk selection
+2. Deselect some members using bulk deselection
+3. Observe member count and selection state",Bulk selection and deselection works correctly and member count updates accordingly,P1,functional,"llm,bulk-selection,usability,member-count",Scene Members Flow
+LLM-F2CFEAE3,Check that the UI handles zero members available gracefully,"Verify that when no members are available, the UI displays an appropriate message and disables selection.",No members are available in the system or after filtering,"1. Navigate to member selection screen with zero members
+2. Observe UI elements and messages",UI shows a clear 'no members available' message and disables selection controls,P2,usability,"llm,empty-state,usability,edge-case",Scene Members Flow
+LLM-83B376F5,Verify that scene name input enforces length and character restrictions,Ensure that the scene name input field enforces maximum length and restricts invalid characters.,User is on a screen where scene name can be entered,"1. Enter a scene name exceeding maximum allowed length
+2. Enter scene name with invalid characters
+3. Attempt to save scene",Input enforces length and character restrictions with appropriate error messages,P1,boundary,"llm,input-validation,scene-name,error-handling",Scene Members Flow
+LLM-B014A68A,Test that pressing Cancel during notification failure allows retry or exit,"Verify that during notification failure on save, pressing Cancel allows user to retry or exit without data loss.",Notification sending fails during scene save,"1. Attempt to save scene and trigger notification failure
+2. Press Cancel on error prompt
+3. Observe options and behavior",User can choose to retry saving or exit without losing assigned members,P2,negative,"llm,error-handling,notification,cancel",Scene Members Flow
+TC-E32A3270,Toggle Edit Mode and Verify Button States,Verify the transition from view mode to edit mode and the correct enabling/disabling of action buttons.,User is on Scene Members screen with devices available.,"1. Open Scene Members screen.
+2. Tap 'Edit' button.","'Edit' button changes to 'Done', 'Back' changes to 'Cancel', and devices show add (+) icons. 'Save' button is disabled initially.",High,Functional,"llm,vision,inter-screen transition,button state,edit mode",Scene Members Flow
+TC-067FEFE0,Add and Remove Devices with Save and Cancel,Verify adding/removing devices updates members and available devices lists correctly and save/cancel behavior.,User is in edit mode on Scene Members screen.,"1. Tap add (+) icon on a device to add it to members.
+2. Tap remove (-) icon on a member to remove it.
+3. Tap 'Save' button.
+4. Re-enter edit mode and tap 'Cancel'.",Device moves between members and available devices lists accordingly. 'Save' confirms changes and persists them. 'Cancel' discards unsaved changes and restores previous state.,High,Functional,"llm,vision,save behavior,cancel behavior,list update,toggle",Scene Members Flow
+TC-2F8B8B30,Validate Long Device Names Display and Search,"Verify devices with long names display correctly without truncation issues and can be searched by name, ID, or MAC address.",User is on Scene Members screen with devices having long names.,"1. Observe device names in the list for truncation or overlap.
+2. Enter partial long device name in search bar.
+3. Enter device ID or MAC address in search bar.","Long names display fully or with proper truncation and ellipsis. Search filters devices correctly by name, ID, or MAC address.",Medium,UI/UX,"llm,vision,validation,long names,search,UI",Scene Members Flow
+TC-D17BFCB3,Error Handling on Failed Scene Member Save,Verify error message is shown when saving scene members fails due to out-of-range or powered-off devices.,User is in edit mode and attempts to save with some devices out of range or powered off.,"1. Add devices to members list.
+2. Simulate failure condition (device out of range or powered off).
+3. Tap 'Save' button.",An error popup appears with message 'Failed to Set Scene Member(s)' and instructions to perform Scene Repair. User can dismiss popup by tapping OK.,High,Error Handling,"llm,vision,error handling,save behavior,popup,validation",Scene Members Flow
+TC-23A3542A,Verify Inter-Screen Navigation and State Persistence,Verify navigation back from Scene Members screen preserves saved changes and discards unsaved changes.,User is on Scene Members screen in edit mode.,"1. Make changes to members list.
+2. Tap 'Back' button without saving.
+3. Re-enter Scene Members screen.
+4. Make changes again and tap 'Save'.
+5. Tap 'Back' button.",Unsaved changes are discarded on back navigation. Saved changes persist and are reflected when re-entering the screen.,High,Functional,"llm,vision,navigation,state persistence,save behavior",Scene Members Flow
+TC-DC5D4BE5,Toggle Between Devices and Groups Tabs,Verify toggling between Devices and Groups tabs updates the list and UI correctly.,User is on Scene Members screen.,"1. Tap 'Groups' tab.
+2. Observe list of groups and available groups.
+3. Tap 'Devices' tab.
+4. Observe list of devices and available devices.",UI updates to show correct members and available items for selected tab with consistent behavior for add/remove and save/cancel.,Medium,Functional,"llm,vision,tab toggle,UI update,inter-screen transition",Scene Members Flow

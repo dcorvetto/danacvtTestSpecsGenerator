@@ -11,11 +11,12 @@ def generate_ui_cases(meta: Dict, scope: str) -> List[TestCase]:
 
     def add(title, desc, steps_list, expected, typ="functional", pr="P2", tags=None):
         steps = [TestStep(i+1, s) for i,s in enumerate(steps_list)]
-        cases.append(TestCase(mk_id(), title, desc, ["Screen reachable"], steps, expected, pr, typ, tags or [], trace))
+        #cases.append(TestCase(mk_id(), title, desc, ["Screen reachable"], steps, expected, pr, typ, tags or [], trace))
 
     # Presence
-    add(f"{scope}: screen loads", "Open screen.", ["Navigate to the screen"], "Screen displays correctly.", pr="P1", tags=["ui"])
-
+    #add(f"{scope}: screen loads", "Open screen.", ["Navigate to the screen"], "Screen displays correctly.", pr="P1", tags=["ui"])
+    return cases
+'''
     # Inputs
     for field in meta["inputs"]:
         add(f"{scope}: input accepts valid — {field}", f"Validate valid input for '{field}'.",
@@ -62,5 +63,4 @@ def generate_ui_cases(meta: Dict, scope: str) -> List[TestCase]:
 
     # Accessibility
     add(f"{scope}: accessibility labeling", "Accessible names/roles/focus order.", ["Inspect with screen reader"], "Correct roles/names; logical focus order; dynamic updates announced.", typ="usability", tags=["a11y"])
-
-    return cases
+'''

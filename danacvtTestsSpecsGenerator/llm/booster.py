@@ -2,7 +2,7 @@ from typing import Dict, List, Tuple, Optional
 import os, json
 from ..models import TestCase, TestStep, mk_id
 from datetime import datetime
-
+import re
 try:
     from openai import OpenAI
 except Exception:
@@ -155,7 +155,7 @@ Context:
     if not isinstance(ideas, list) or not ideas:
         print("[LLM] Could not parse JSON ideas → skipping.")
         # Helpful peek for debugging
-        print("[LLM] First 200 chars:", (raw or "")[:200].replace("\n", " "))
+        print("[LLM] First 200 chars:", (raw or "")[:1000].replace("\n", " "))
         return []
 
     out: List[TestCase] = []
@@ -177,7 +177,7 @@ Context:
 
         steps = [TestStep(i + 1, s) for i, s in enumerate(steps_strs)]
         out.append(TestCase(
-            id=mk_id(),
+            id=mk_id(prefix="LLM"),
             title=title,
             description=description,
             preconditions=[str(x) for x in pre],

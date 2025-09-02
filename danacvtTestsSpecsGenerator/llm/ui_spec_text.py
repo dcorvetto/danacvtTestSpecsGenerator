@@ -64,3 +64,53 @@ def llm_ui_spec_from_ocr(ocr_text: str, img_path: str, scope: str, model: str, t
         # crude fence removal if model wrapped output
         md = md.split("\n", 1)[-1]
     return md
+
+def llm_flow_spec_from_ocr_texts(
+    ocr_texts: List[str],
+    scope: str,
+    model: str = "gpt-4o-mini",
+    temperature: float = 0.2,
+    max_tokens: int = 2000,
+) -> str:
+    """
+    Combine OCR text from multiple images into ONE flow spec via text LLM.
+    """
+    if OpenAI is None:
+        raise RuntimeError("openai package not installed")
+    if not os.getenv("OPENAI_API_KEY"):
+        raise RuntimeError("OPENAI_API_KEY not set")
+
+    client = OpenAI()
+    joined = "\n\n".join(f"[Screen {i+1}]\n{txt}" for i, txt in enumerate(ocr_texts))
+
+    prompt = f"""
+You are a senior QA/UX specialist. The following OCR texts come from multiple mockups of the flow "{scope}".
+Generate ONE unified Markdown UI specification with sections:
+
+- Overview — purpose and goals
+- Flow Overview (screen order with purpose)
+- Per-screen Components
+- Interaction Flow across screens
+- Validation & Edge Cases
+- Accessibility
+- Data & Validation Rules
+- General Data & Validation
+- Telemetry/Analytics
+- Open Questions / Assumptions
+
+OCR:
+{joined}
+""".strip()
+
+    resp = client.chat.completions.create(
+        model=model,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        messages=[{"role":"user","content":prompt}],
+    )
+    md = (resp.choices[0].message.content or "").strip()
+    if md.startswith("```"):
+        md = md.strip("`").split("\n", 1)[-1]
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    header = f"# Flow Spec — {scope}\n\n_Generated: {ts}_\n\n"
+    return header + md
